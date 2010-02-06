@@ -1,0 +1,38 @@
+'''
+Individual user settings:
+    * use my own db
+    * only send mails to myself
+    * ...
+If you want to use these settings you need to make a copy of `develepment_personal.cfg-dist`
+and run buildout like this
+`./bin/buildout -c development_personal.cfg`
+
+If you want to edit an app, clone it into your workspace, then edit `develop` in your `development_personal.cfg` and
+rerun `./buildout -c development_personal.cfg`. Now that version of the package will be used (added to the path).
+
+`
+[buildout]
+develop +=
+    ../django-myapp
+
+`
+'''
+from cmsproject.settings.development_local import *
+ADMINS = (
+     ('Me', 'me@example.com'),
+)
+MANAGERS = ADMINS
+
+#INSTALLED_APPS += ['news']
+#INSTALLED_APPS -= ['otherapp']
+
+
+use_local_db=True
+if use_local_db:
+    DATABASE_ENGINE = 'mysql'
+    DATABASE_NAME = 'cmsproject'
+    DATABASE_USER = 'root'
+    DATABASE_PASSWORD = ''
+    DATABASE_HOST = '127.0.0.1'
+    DATABASE_PORT = ''
+

@@ -1,0 +1,22 @@
+[buildout]
+extends=development_local.cfg
+parts -=
+	django-cms
+eggs +=
+	django-cms
+find-links +=
+develop +=
+#	../django-filer
+#	../cmsplugin-filer
+#	../django-cms-2.0
+#	../django-divioadmin
+#	../django-siteinfo
+#	../django-simplegallery
+#	../django-news
+#	../django-contactform
+
+[django]
+settings=settings.development_personal
+test=
+	cms
+	filer

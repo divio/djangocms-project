@@ -1,0 +1,30 @@
+INITIAL SETUP
+=============
+
+setup the basic environment:
+`python bootstrap.py`
+
+installs all the dependencies (can take a few minutes):
+`./bin/buildout`
+
+If you get an error on the first command you may need to run `sudo easy_install -U setuptools` first.
+
+
+RUNNING THE DEVELOPMENT SERVER
+==============================
+
+runs the development server on all local ips:
+`./bin/django runserver 0.0.0.0:8000`
+
+
+INSTALL CHANGED DEPENDENCIES OR UPDATING THE CONFIGURATION
+==========================================================
+
+`./bin/buildout`
+
+
+
+ADVANCED BUILDUT USE
+====================
+by default buildout will use the development_local.cfg settings. Make a copy of development_personal.cfg-dist for your own settings and then use
+`./bin/buildout -c development_personal.cfg` to build your personal environment. same thing for the settings

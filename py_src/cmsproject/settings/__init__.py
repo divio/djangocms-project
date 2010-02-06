@@ -1,0 +1,1 @@
+from cmsproject.settings.development_local import *
