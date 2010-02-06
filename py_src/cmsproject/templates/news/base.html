@@ -1,0 +1,33 @@
+{% extends "col_two.html" %}
+{% load i18n thumbnail cms_tags %}
+
+{% if title %}
+{% block title %}{{ block.super }} | {{ title }}{% endblock %}
+{% endif %}
+
+{% block extrahead %}
+	{# <link rel="alternate" type="application/rss+xml" title="{{ site_settings.site }} - {% filter title %}{% trans 'news feed' %}{% endfilter %}" href="{% url news_feed %}"/> #}
+{% endblock %}
+
+{% block tpl_id %}tpl_1col{% endblock %}
+
+{% block page_title %}
+	<h1>{% page_attribute title %}{% if title %} | {{ title }}{% endif %}</h1>
+{% endblock %}
+
+{% block col_left %}
+	{% block content_news %}{% endblock %}&nbsp;
+	{% block paginator %}
+		{% if is_paginated %}
+		<div class="paginator">
+			<ul>
+			{% if page_obj.has_previous %}<li class="pag_bt"><a href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>{% endif %}
+			{% for page_nr in paginator.page_range %}
+				<li><a{% ifequal page_obj.number page_nr %} class="active"{% endifequal %} href="?page={{ page_nr }}">{{ page_nr }}</a></li>
+			{% endfor %}
+			{% if page_obj.has_next %}<li class="pag_bt"><a href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>{% endif %}
+			</ul>
+		</div>
+		{% endif %}
+	{% endblock %}
+{% endblock %}

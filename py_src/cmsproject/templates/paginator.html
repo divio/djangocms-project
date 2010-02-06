@@ -1,0 +1,14 @@
+{% load i18n %}
+{% if is_paginated %}
+<div class="paginator">
+	<ul>
+		{% if has_previous %}<li class="prev"><a href="?{% if query_string %}{{ query_string}}&amp;{% endif %}page={{ previous }}">&lt;</a></li>{% endif %}
+		{% for p in paginator.page_range %}
+			{% ifnotequal p page_obj.number %}<li><a href="?{% if query_string %}{{ query_string}}&amp;{% endif %}page={{ p }}">{{ p }}</a></li>
+			{% else %}<li class="current"><span>{{ p }}</span></li>
+			{% endifnotequal %}
+		{% endfor %}
+		{% if has_next %}<li class="next"><a href="?{% if query_string %}{{ query_string}}&amp;{% endif %}page={{ next }}">&gt;</a></li>{% endif %}
+	</ul>
+</div>
+{% endif %}

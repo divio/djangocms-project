@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block tpl_id %}tpl_col_one{% endblock %}
+
+{% block content %}
+<div id="main_holder" class="container_16 clearfix">
+	<div class="grid_11">
+		<h1>{% page_attribute title %}</h1>
+	</div>
+	
+	{% comment %}
+	<div id="feature_standard_top">
+		{% block feature_standard_top %}&nbsp;{% endblock %}
+	</div>
+	{% endcomment %}
+	
+    <div id="col1" class="grid_16">
+		{% block col_left %}
+			{% placeholder col_left 16_16 %}
+		{% endblock %}
+	</div>
+</div>
+{% endblock %}

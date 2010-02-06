@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Server error (500)' %}{% endblock %}
+
+{% block content %}
+    <div id="col1" class="grid_16">
+		<h1>{% trans 'Server error (500)' %}</h1>
+		<p>{% trans "There's been an error. It's been reported to the site administrators via e-mail and should be fixed shortly. Thanks for your patience." %}</p>
+	</div>
+{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+{% block sitemap %}
+	{% if page %}{{ block.super }}{% endif %}
+{% endblock %}
+{% block language_chooser %}
+	{% if page %}{{ block.super }}{% endif %}
+{% endblock %}
+{% block navigation_meta %}
+	{% if page %}{{ block.super }}{% endif %}
+{% endblock %}
+{% block navigation %}
+	{% if page %}{{ block.super }}{% endif %}
+{% endblock %}
+{% block navigation_sub %}
+	{% if page %}{{ block.super }}{% endif %}
+{% endblock %}

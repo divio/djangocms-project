@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block tpl_id %}tpl_col_two{% endblock %}
+
+{% block content %}
+<div id="main_holder" class="container_16 clearfix">
+	    <div id="col1" class="grid_11 border_right">
+			{% block col_left %}
+		    	{% placeholder col_left 16_11 %}
+			{% endblock %}
+	    </div>
+	    <div id="col2" class="grid_5 omega blog_archiv">
+			{% block col_right %}
+				{% placeholder col_right 16_5 %}
+			{% endblock %}
+	    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block tpl_id %}tpl_col_three{% endblock %}
+
+{% block content %}
+<div class="container_16 clearfix">
+	<div id="feature_standard">
+		{% block feature_standard %}
+			{% placeholder feature_standard %}
+		{% endblock %}
+	</div>
+	
+    <div id="col1" class="grid_6 border_right">
+		{% block col_left %}
+	    	{% placeholder col_left 16_6 %}
+		{% endblock %}
+	</div>
+    <div id="col2" class="grid_5 border_right plugins">
+		{% block col_middle %}
+			{% placeholder col_middle 16_5 %}
+		{% endblock %}
+    </div>
+    <div id="col3" class="grid_5">
+		{% block col_right %}
+			{% placeholder col_right 16_5 %}
+		{% endblock %}
+	</div>
+</div>
+{% endblock %}

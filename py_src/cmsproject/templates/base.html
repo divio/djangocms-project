@@ -1,0 +1,169 @@
+{% load i18n contact_tags cms_tags %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{% block title %}{% block title_prefix %}{% page_attribute page_title %}{% endblock %}{% block title_extra %}{% endblock %}{% block title_suffix %} | {{ site_settings.site.name }}{% endblock %}{% endblock %}</title>
+{% block meta_tags %}
+    {% for tag in meta_tags %}{% spaceless %}
+    {{ tag }}
+    {% endspaceless %}
+    {% endfor %}
+{% endblock %}
+{% block css %}	
+	<link href="{{ MEDIA_URL }}css/style.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="{{ MEDIA_URL }}css/print.css" media="print"	rel="stylesheet" type="text/css" />
+{% endblock %}
+{% if site_settings.favicon %}
+    <link rel="Shortcut Icon" type="image/x-icon" href="{{ MEDIA_URL }}{{ site_settings.favicon }}"/>
+{% endif %}
+{% block js %}
+	{% for file in js %}<script type="text/javascript" src="{{ file }}"></script>{% endfor %}
+	<!--[if IE 6]>		
+		<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}js/jquery.dropdownPlain.js"></script>{# dropdown - just needed for ie6 Hover #}
+		<script type="text/javascript" src="{{ MEDIA_URL }}js/ie6pngfix.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+			DD_belatedPNG.fix('#logo_holder a,#col2 p, #header .content, #nav_main li, #nav_main a, .poweredby_icon a, .cart_upgrade a, .plugins p, .feature_top_slideshow .feature_content_1');
+		//]]>
+		</script>	
+	<![endif]-->
+{% endblock %}
+{% block extrahead %}{% endblock %}
+</head>
+<body id="{% block tpl_id %}none{% endblock %}" class="{{ LANGUAGE_CODE }}">
+{% comment %}
+	<div id="cart">
+		<ul>
+			<li class="cart_basket"><a href="#">cart</a></li>
+			<li class="cart_info"><a href="#">info</a></li>
+			<li class="cart_upgrade"><a href="#">upgrade options</a></li>
+		</ul>
+	</div>
+{% endcomment %}
+
+<div id="page" class="container_16 clearfix">
+
+	<div id="header" class="clearfix">
+		<div class="content">
+	      	<div id="logo_holder">	      		
+				<a href="/">{{ site_settings.site.name }}</a>
+	      		<a href="http://www.divio.ch" id="logo_divio">Divio</a>
+	      	</div>
+	    </div>
+		<div id="nav_holder" class="clearfix">
+			<div id="nav_main" class="grid_11">
+				{% block navigation %}
+				{% spaceless %}
+				<ul class="dropdown"> 
+					 {% show_menu 0 100 100 100 %}
+				</ul>
+				{% endspaceless %}
+				{% endblock %}
+			</div>
+			
+			{% comment %}
+			<div id="nav_lang" class="floatright">
+				{% block language_chooser %}
+				<ul>
+				{% language_chooser %}
+				</ul>
+				{% endblock %}
+			</div>
+			{% endcomment %}
+			
+			<div id="meta">
+				<div id="nav_meta" class="grid_4 clearfix">
+					{% block navigation_meta %}
+						<ul>
+						{% show_menu_below_id "meta" 1 100 100 100 %}
+						</ul>
+					{% endblock %}
+				</div>
+			</div>		
+		</div>
+		
+		{% comment %}
+		<div class="breadcrumb clearfix">
+			{% block breadcrumb %}
+			{% spaceless %}
+			<ul>
+				{% show_breadcrumb %}
+			</ul>
+			{% endspaceless %}
+			{% endblock %}
+		</div>
+		{% endcomment %}
+	  
+	</div>
+</div>  
+      
+	  <div id="main" class="clearfix">
+		{% if not request.current_page.is_leaf_node or request.current_page.level %}
+	  	<div id="nav_sub">
+				<div class="container_16 clearfix">
+				{% block navigation_sub %}
+					<ul>
+						{% show_menu 1 1 0 1 %}
+					</ul>
+				{% endblock %}
+				</div>
+			</div>
+			{% endif %}
+	  		{% block content %}{% endblock content %}
+	  </div>
+	  
+	  
+	<div id="footer" class="container_16 clearfix">
+		
+		<div id="sitemap_content" class="clearfix">
+			{% block sitemap %}
+			<div class="poweredby">
+				<div class="poweredby_text">
+					<h6>Playground is powered by</h6>
+				</div>
+				<div class="poweredby_icon">
+					<a href="http://www.django-cms.org">django</a>
+				</div>																	
+			</div>
+			{% comment %}	
+			<ul id="footer_sitemap"> 
+				{% show_menu 0 100 100 100 %}
+			</ul>
+			{% endcomment %}
+			{% endblock %}
+		</div>
+
+		{% comment %}
+		<address><strong>{{ site_settings.company }}</strong><br />{{ site_settings.get_full_address }}</address>
+		<dl>
+		  {% if site_settings.phone %}<dt>{% trans 'Tel' %}</dt><dd>{{ site_settings.phone }}</dd>{% endif %}
+		  {% if site_settings.fax %}<dt>{% trans 'Fax' %}</dt><dd>{{ site_settings.fax }}</dd>{% endif %}
+		  {% if site_settings.email %}<dt>{% trans 'Mail' %}</dt><dd>{{ site_settings.email|render_email }}</dd>{% endif %}
+		</dl>	
+		
+		    {{ site_settings.first_name }}
+		    {{ site_settings.last_name }}
+		    {{ site_settings.address }}
+		    {{ site_settings.zip_code }}
+		    {{ site_settings.city }}
+		    {{ site_settings.country }}
+		    {{ site_settings.phone_mobile }}
+		    {{ site_settings.fax }}
+		    {{ site_settings.gtc }}
+			{{ site_settings.imprint }}
+		{% endcomment %}		
+      </div>
+</div>
+{% if GOOGLE_ANALYTICS_ID %}
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("{{ GOOGLE_ANALYTICS_ID }}");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+{% endif %}
+</body>
+</html>

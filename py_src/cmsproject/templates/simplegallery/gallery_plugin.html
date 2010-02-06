@@ -1,0 +1,285 @@
+{% load i18n thumbnail %}
+
+<script type="text/javascript">
+//<![CDATA[
+	var simplegallery_media_loaded;
+//]]>
+</script>
+
+{# THEME 16_5 #}
+{% ifequal theme "16_5" %}
+	<script type="text/javascript">
+	//<![CDATA[
+    $(function() {
+        if(!simplegallery_media_loaded) {
+			$("head").append('<li' + 'nk type="text/css" media="screen" rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.lightbox-0.5.css" />');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.trans.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.lightbox-0.5.min.js"></scr' + 'ipt>');
+            simplegallery_media_loaded = true;
+        }
+	    $('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+	
+		$('#simplegallery_{{ instance.id }} .gallery_content').cycle({
+	        fx:    'scrollLeft',
+	        speed:  '900',
+	        timeout: 10000,
+	        pager:  '#simplegallery_{{ instance.id }} .gallery_nav',
+	        pagerAnchorBuilder: function(idx, slide) {
+	            return '#simplegallery_{{ instance.id }} .gallery_nav li:eq(' + (idx) + ') a';
+	        }		
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause');
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause'); 
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_nav li a').click(function() { 
+	    	$('#simplegallery_{{ instance.id }} .gallery_content').cycle('resume'); 
+		});
+	});
+	//]]>
+	</script>
+	
+	<div class="simplegallery clearfix" id="simplegallery_{{ instance.id }}">
+		<div class="gallery_content">{% for image in gallery.images.all %}
+	        <div class="holder">
+	            <a href="{% thumbnail image.file 800x600 %}" class="plus">{% trans 'enlarge' %}</a>
+	            <a href="{% thumbnail image.file 800x600 %}" title="{{ image.title|escape }}" class="pic"><img src="{% thumbnail image.file 260x190 crop %}" alt="{{ image.description|escape }}" /></a>
+	        </div>{% endfor %}
+	    </div>				
+	    <ul class="gallery_nav clearfix">{% for image in gallery.images.all %}
+	        <li{% if forloop.first %} class="first"{% endif %}><a href="#"><img src="{% thumbnail image.file 40x30 crop%}" title="" alt="" /></a></li>{% endfor %}
+	    </ul>
+	</div>
+
+{% endifequal %}
+
+
+{# THEME 16_8 #}
+{% ifequal theme "16_8" %}
+	<script type="text/javascript">
+	//<![CDATA[
+	$(function() {
+        if(!simplegallery_media_loaded) {
+			$("head").append('<li' + 'nk type="text/css" media="screen" rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.lightbox-0.5.css" />');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.trans.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.lightbox-0.5.min.js"></scr' + 'ipt>');
+            simplegallery_media_loaded = true;
+        }
+	    $('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+	
+		$('#simplegallery_{{ instance.id }} .gallery_content').cycle({
+	        fx:    'scrollLeft',
+	        speed:  '900',
+	        timeout: 10000,
+	        pager:  '#simplegallery_{{ instance.id }} .gallery_nav',
+	        pagerAnchorBuilder: function(idx, slide) {
+	            return '#simplegallery_{{ instance.id }} .gallery_nav li:eq(' + (idx) + ') a';
+	        }		
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause');
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause'); 
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_nav li a').click(function() { 
+	    	$('#simplegallery_{{ instance.id }} .gallery_content').cycle('resume'); 
+		});
+	});
+	//]]>
+	</script>
+		
+	<!--[if IE 6]>	
+		<script type="text/javascript">	
+			DD_belatedPNG.fix('#simplegallery_{{ instance.id }} .gallery_content .holder .plus');
+		</script>		
+	<![endif]-->
+	<div class="simplegallery clearfix" id="simplegallery_{{ instance.id }}">
+		<div class="gallery_content">{% for image in gallery.images.all %}
+	        <div class="holder">
+	            <a href="{% thumbnail image.file 800x600 %}" class="plus">{% trans 'enlarge' %}</a>
+	            <a href="{% thumbnail image.file 800x600 %}" title="{{ image.title|escape }}" class="pic"><img src="{% thumbnail image.file 460x290 upscale,crop %}" alt="{{ image.description|escape }}" /></a>
+	        </div>{% endfor %}
+	    </div>
+	    <ul class="gallery_nav clearfix">{% for image in gallery.images.all %}
+	        <li{% if forloop.first %} class="first"{% endif %}><a href="#"><img src="{% thumbnail image.file 60x40 upscale,crop %}" title="" alt="" /></a></li>{% endfor %}
+	    </ul>
+	</div>
+{% endifequal %}
+
+{# THEME 16_11 #}
+{% ifequal theme "16_11" %}
+	<script type="text/javascript">
+	//<![CDATA[
+	$(function() {
+        if(!simplegallery_media_loaded) {
+			$("head").append('<li' + 'nk type="text/css" media="screen" rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.lightbox-0.5.css" />');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.trans.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.lightbox-0.5.min.js"></scr' + 'ipt>');
+            simplegallery_media_loaded = true;
+        }
+	    $('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+	
+		$('#simplegallery_{{ instance.id }} .gallery_content').cycle({
+	        fx:    'scrollLeft',
+	        speed:  '900',
+	        timeout: 10000,
+	        pager:  '#simplegallery_{{ instance.id }} .gallery_nav',
+	        pagerAnchorBuilder: function(idx, slide) {
+	            return '#simplegallery_{{ instance.id }} .gallery_nav li:eq(' + (idx) + ') a';
+	        }		
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause');
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause'); 
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_nav li a').click(function() { 
+	    	$('#simplegallery_{{ instance.id }} .gallery_content').cycle('resume'); 
+		});
+	});
+	//]]>
+	</script>
+		
+	<!--[if IE 6]>	
+		<script type="text/javascript">	
+			DD_belatedPNG.fix('#simplegallery_{{ instance.id }} .gallery_content .holder .plus');
+		</script>		
+	<![endif]-->
+	<div class="simplegallery clearfix" id="simplegallery_{{ instance.id }}">
+		<div class="gallery_content">{% for image in gallery.images.all %}
+	        <div class="holder">
+	            <a href="{% thumbnail image.file 800x600 %}" class="plus">{% trans 'enlarge' %}</a>
+	            <a href="{% thumbnail image.file 800x600 %}" title="{{ image.title|escape }}" class="pic"><img src="{% thumbnail image.file 640x450 upscale,crop %}" alt="{{ image.description|escape }}" /></a>
+	        </div>{% endfor %}
+	    </div>
+	    <ul class="gallery_nav clearfix">{% for image in gallery.images.all %}
+	        <li{% if forloop.first %} class="first"{% endif %}><a href="#"><img src="{% thumbnail image.file 70x48 upscale,crop %}" title="" alt="" /></a></li>{% endfor %}
+	    </ul>
+	</div>
+{% endifequal %}
+
+
+{# THEME 16_12 #}
+{% ifequal theme "16_12" %}
+	<script type="text/javascript">
+	//<![CDATA[
+	$(function() {
+        if(!simplegallery_media_loaded) {
+			$("head").append('<li' + 'nk type="text/css" media="screen" rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.lightbox-0.5.css" />');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.trans.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.lightbox-0.5.min.js"></scr' + 'ipt>');
+            simplegallery_media_loaded = true;
+        }
+	    $('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+	
+		$('#simplegallery_{{ instance.id }} .gallery_content').cycle({
+	        fx:    'scrollLeft',
+	        speed:  '900',
+	        timeout: 10000,
+	        pager:  '#simplegallery_{{ instance.id }} .gallery_nav',
+	        pagerAnchorBuilder: function(idx, slide) {
+	            return '#simplegallery_{{ instance.id }} .gallery_nav li:eq(' + (idx) + ') a';
+	        }		
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause');
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause'); 
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_nav li a').click(function() { 
+	    	$('#simplegallery_{{ instance.id }} .gallery_content').cycle('resume'); 
+		});
+	});
+	//]]>
+	</script>
+		
+	<!--[if IE 6]>	
+		<script type="text/javascript">	
+			DD_belatedPNG.fix('#simplegallery_{{ instance.id }} .gallery_content .holder .plus');
+		</script>		
+	<![endif]-->
+	<div class="simplegallery clearfix" id="simplegallery_{{ instance.id }}">
+		<div class="gallery_content">{% for image in gallery.images.all %}
+	        <div class="holder">
+	            <a href="{% thumbnail image.file 800x600 %}" class="plus">{% trans 'enlarge' %}</a>
+	            <a href="{% thumbnail image.file 800x600 %}" title="{{ image.title|escape }}" class="pic"><img src="{% thumbnail image.file 700x550 upscale,crop %}" alt="{{ image.description|escape }}" /></a>
+	        </div>{% endfor %}
+	    </div>
+	    <ul class="gallery_nav clearfix">{% for image in gallery.images.all %}
+	        <li{% if forloop.first %} class="first"{% endif %}><a href="#"><img src="{% thumbnail image.file 60x38 upscale,crop %}" title="" alt="" /></a></li>{% endfor %}
+	    </ul>
+	</div>
+{% endifequal %}
+
+
+
+
+{# THEME 16_16 #}
+{% ifequal theme "16_16" %}
+	<script type="text/javascript">
+	//<![CDATA[
+	$(function() {
+        if(!simplegallery_media_loaded) {
+			$("head").append('<li' + 'nk type="text/css" media="screen" rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.lightbox-0.5.css" />');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.cycle.trans.min.js"></scr' + 'ipt>');
+            $("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}simplegallery/js/jquery.lightbox-0.5.min.js"></scr' + 'ipt>');
+            simplegallery_media_loaded = true;
+        }
+	    $('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').lightBox({fixedNavigation:true,containerResizeSpeed: 0});
+	
+		$('#simplegallery_{{ instance.id }} .gallery_content').cycle({
+	        fx:    'scrollLeft',
+	        speed:  '900',
+	        timeout: 10000,
+	        pager:  '#simplegallery_{{ instance.id }} .gallery_nav',
+	        pagerAnchorBuilder: function(idx, slide) {
+	            return '#simplegallery_{{ instance.id }} .gallery_nav li:eq(' + (idx) + ') a';
+	        }		
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.plus').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause');
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_content .holder a.pic').click(function() { 
+		    $('#simplegallery_{{ instance.id }} .gallery_content').cycle('pause'); 
+		});
+		$('#simplegallery_{{ instance.id }} .gallery_nav li a').click(function() { 
+	    	$('#simplegallery_{{ instance.id }} .gallery_content').cycle('resume'); 
+		});
+	});
+	//]]>
+	</script>
+		
+	<!--[if IE 6]>	
+		<script type="text/javascript">	
+			DD_belatedPNG.fix('#simplegallery_{{ instance.id }} .gallery_content .holder .plus');
+		</script>		
+	<![endif]-->
+	<div class="simplegallery clearfix" id="simplegallery_{{ instance.id }}">
+		<div class="gallery_content">{% for image in gallery.images.all %}
+	        <div class="holder">
+	            <a href="{% thumbnail image.file 800x600 %}" class="plus">{% trans 'enlarge' %}</a>
+	            <a href="{% thumbnail image.file 800x600 %}" title="{{ image.title|escape }}" class="pic"><img src="{% thumbnail image.file 940x740 upscale,crop %}" alt="{{ image.description|escape }}" /></a>
+	        </div>{% endfor %}
+	    </div>
+	    <ul class="gallery_nav clearfix">
+	    {% for image in gallery.images.all %}
+	        <li{% if forloop.first %} class="first"{% endif %}><a href="#"><img src="{% thumbnail image.file 94x64 upscale,crop %}" title="" alt="" /></a></li>
+		{% endfor %}
+	    </ul>
+	</div>
+{% endifequal %}

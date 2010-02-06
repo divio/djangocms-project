@@ -1,0 +1,132 @@
+{% comment %}
+	überall wo nun feature_top_slideshow_1 steht, bitte mit "plugin id" einbinden.	
+	feature_top_slideshow_{{ instance.id }}	
+{% endcomment %}
+
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.cycle.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.cycle.trans.min.js"></script>
+
+<script type="text/javascript">
+	//<![CDATA[
+$(function() {
+	$('#feature_top_slideshow_1 .slideshow_content .holder').hide();
+	$('#feature_top_slideshow_1 .slideshow_content').cycle({
+        fx:    'fade',
+        speed:  '900',
+        timeout: 5000,
+        pager:  '#feature_top_slideshow_1 .slideshow_nav',
+        pagerAnchorBuilder: function(idx, slide) {
+            return '#feature_top_slideshow_1 .slideshow_nav li:eq(' + (idx) + ') a';
+        }
+	});
+});
+	//]]>
+</script>
+	
+<!--[if IE 6]>	
+	<script type="text/javascript">	
+		DD_belatedPNG.fix('#feature_top_slideshow_1 .slideshow_nav li a');
+	</script>		
+<![endif]-->
+
+<div class="feature_top_slideshow" id="feature_top_slideshow_{{ instance.id }}">			
+    <ul class="slideshow_nav">
+        <li class="first"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+    </ul>
+	<ul class="btn">
+    	<li><a href="#">Entdecken Sie LaunchPad</a></li>
+   	</ul>
+	
+	
+	<div class="slideshow_content">		
+	   		<div class="holder">
+	   			<a href="#link-zu-detail" class="pic"><img src="/media/img/test-gallery-pic1-small.jpg" alt="" /></a>
+				<div class="info">
+					<h2>Um ein Ziel zu erreichen muss man zuerst starten.</h2>
+					<ul>
+						<li><span>Content Management</span></li>
+						<li><span>Mehrsprachenfahig</span></li>
+						<li><span>Erweiterbar durch Plugins</span></li>
+						<li><span>Customizable</span></li>
+						<li><span>SEO Konform</span></li>
+						<li><span>Und vieles mehr...</span></li>
+					</ul>
+				</div>
+	   		</div>
+	   		<div class="holder">
+	   			<a href="#link-zu-detail" class="pic"><img src="/media/img/test-gallery-pic1-small.jpg" alt="" /></a>
+				<div class="info">
+					<h2>Um ein Ziel zu erreichen muss man zuerst starten.</h2>
+					<ul>
+						<li><span>Content Management</span></li>
+						<li><span>Mehrsprachenfahig</span></li>
+						<li><span>Erweiterbar durch Plugins</span></li>
+						<li><span>Customizable</span></li>
+						<li><span>SEO Konform</span></li>
+						<li><span>Und vieles mehr...</span></li>
+					</ul>
+				</div>
+	   		</div>
+	   		<div class="holder">
+	   			<a href="#link-zu-detail" class="pic"><img src="/media/img/test-gallery-pic1-small.jpg" alt="" /></a>
+				<div class="info">
+					<h2>Um ein Ziel zu erreichen muss man zuerst starten.</h2>
+					<ul>
+						<li><span>Content Management</span></li>
+						<li><span>Mehrsprachenfahig</span></li>
+						<li><span>Erweiterbar durch Plugins</span></li>
+						<li><span>Customizable</span></li>
+						<li><span>SEO Konform</span></li>
+						<li><span>Und vieles mehr...</span></li>
+					</ul>
+				</div>
+	   		</div>
+	   		<div class="holder">
+	   			<a href="#link-zu-detail" class="pic"><img src="/media/img/test-gallery-pic1-small.jpg" alt="" /></a>
+				<div class="info">
+					<h2>Um ein Ziel zu erreichen muss man zuerst starten.</h2>
+					<ul>
+						<li><span>Content Management</span></li>
+						<li><span>Mehrsprachenfahig</span></li>
+						<li><span>Erweiterbar durch Plugins</span></li>
+						<li><span>Customizable</span></li>
+						<li><span>SEO Konform</span></li>
+						<li><span>Und vieles mehr...</span></li>
+					</ul>
+				</div>
+	   		</div>
+	   		<div class="holder">
+	   			<a href="#link-zu-detail" class="pic"><img src="/media/img/test-gallery-pic1-small.jpg" alt="" /></a>
+				<div class="info">
+					<h2>Um ein Ziel zu erreichen muss man zuerst starten.</h2>
+					<ul>
+						<li><span>Content Management</span></li>
+						<li><span>Mehrsprachenfahig</span></li>
+						<li><span>Erweiterbar durch Plugins</span></li>
+						<li><span>Customizable</span></li>
+						<li><span>SEO Konform</span></li>
+						<li><span>Und vieles mehr...</span></li>
+					</ul>
+				</div>
+	   		</div>
+	   		<div class="holder">
+	   			<a href="#link-zu-detail" class="pic"><img src="/media/img/test-gallery-pic1-small.jpg" alt="" /></a>
+				<div class="info">
+					<h2>Um ein Ziel zu erreichen muss man zuerst starten.</h2>
+					<ul>
+						<li><span>Content Management</span></li>
+						<li><span>Mehrsprachenfahig</span></li>
+						<li><span>Erweiterbar durch Plugins</span></li>
+						<li><span>Customizable</span></li>
+						<li><span>SEO Konform</span></li>
+						<li><span>Und vieles mehr...</span></li>
+					</ul>
+				</div>
+	   		</div>
+	</div>
+</div>
