@@ -1,0 +1,55 @@
+/* PLUGIN form */
+label{display:block; margin-bottom:4px;}
+.nolabels label{display:none;}
+.ctrlHolder{clear:both;padding-top:5px; margin-bottom:5px;}
+.submit_button{ margin-top:40px;}
+.checkboxinput {float:left}
+.checkbox label{display:inline;}
+.checkbox_box, .checkbox_box input, .checkbox_label, .checkbox_label label{vertical-align:middle;}
+
+input.textinput, input.passwordinput, textarea{width:400px; margin-bottom:5px; border: 1px solid #ccc;height:18px; padding:6px 0px 2px 6px; color:#7c96a2;float:left; font:12px Helvetica, Arial, sans-serif;}
+textarea{height:180px;}
+.fileinput		{height:22px;}
+
+.errorField{color:#900;font-size:11px;clear:both}
+
+.error input.textinput, .error input.passwordinput, .error textarea{border-color:#900;}
+
+.radioselect ul, .radioselect li{list-style:none;margin:0;}
+
+#div_id_password{clear:both}
+
+.login{ float:left; clear:both; margin-top:20px;}
+
+
+/* THEME 16_5 */
+.grid_5 .textinput, .grid_5 textarea{
+	width:268px;
+}
+.grid_5 textarea{
+	height:120px;
+}
+
+/* THEME 16_6 */
+.grid_6 .textinput, .grid_6 textarea{
+	width:328px;
+}
+.grid_5 textarea{
+	height:120px;
+}
+
+/* THEME 16_7 */
+.grid_7 .textinput, .grid_7 textarea{
+	width:388px;
+}
+.grid_7 textarea{
+	height:120px;
+}
+
+/* THEME 16_16 */
+.grid_16 .textinput, .grid_16 textarea{
+	width:400px;
+}
+.grid_16 textarea{
+	height:150px;
+}

@@ -1,0 +1,55 @@
+/* PLUGIN gallery */
+.simplegallery{}
+.simplegallery .gallery_nav{list-style:none; float:left;padding-top:6px;padding-left:6px;}
+.simplegallery .gallery_nav li{margin:0;padding:0px 6px 0px 0px;float:left;zoom:1;}
+/*.gallery_nav li.first{padding-left:0px;}*/
+.simplegallery .gallery_nav li img{
+	opacity: .65;
+	filter: alpha(opacity=65);
+	-ms-filter: "alpha(opacity=65)";
+	-khtml-opacity: .65;
+	-moz-opacity: .65;
+}
+.simplegallery .gallery_nav li a:hover img, .simplegallery .gallery_nav li .activeSlide img{
+	opacity: 1.0;
+	filter: alpha(opacity=100);
+	-ms-filter: "alpha(opacity=100)";
+	-khtml-opacity: 1.0;
+	-moz-opacity: 1.0;
+}
+
+.simplegallery .gallery_content{height:290px; background:#ccc;}
+.simplegallery .gallery_content img{z-index:1;}
+
+.simplegallery .gallery_content .holder{position:absolute; display:none;}
+.simplegallery .gallery_content .holder .plus{display:block; z-index:205; position:absolute; left:10px; top:10px; width:21px; height:21px;background:transparent url(../../img/gfx.png) no-repeat left -1030px; text-indent:-9999em;}
+.simplegallery .gallery_content .holder .plus:hover{background-position:-32px -1030px;}
+
+
+* html .simplegallery .gallery_content .holder .plus{
+	height:20px;
+	width:20px;
+	background:none;
+	background:url(/media/img/simplegallery_lupe.png) no-repeat;
+}
+* html .simplegallery .gallery_content .holder .plus:hover{background-position:0px -30px;}
+
+
+/* THEME 16_5 */
+.grid_5 .simplegallery .gallery_content{width:260px;height:190px;}
+.grid_5 .simplegallery .gallery_nav{padding-top:6px;padding-left:0px;}
+.grid_5 .simplegallery .gallery_nav li{padding:0px 4px 2px 0px;float:left;zoom:1;}
+.grid_5 .simplegallery .gallery_nav img{}
+
+/* THEME 16_11 */
+.grid_11 .simplegallery .gallery_content{height:450px;width:630px; margin-bottom:2px; clear: both;}
+.grid_11 .simplegallery .gallery_nav{padding-top:6px;padding-left:0px;}
+.grid_11 .simplegallery .gallery_nav li{padding:0px 10px 5px 0px;float:left;zoom:1;}
+.grid_11 .simplegallery .gallery_nav img{}
+
+/* THEME 16_16 */
+.grid_16 .simplegallery .gallery_content{height:670px;width:926px; margin-bottom:2px; clear: both;}
+.grid_16 .simplegallery .gallery_nav{padding-top:6px;padding-left:0px;}
+.grid_16 .simplegallery .gallery_nav li{padding:0px 10px 5px 0px;float:left;zoom:1;}
+.grid_16 .simplegallery .gallery_nav img{}
+

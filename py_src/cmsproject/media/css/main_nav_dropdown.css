@@ -1,0 +1,66 @@
+#nav_main ul, #nav_main li{list-style:none;margin:0px 0px 0px 0px;}
+#nav_main li{margin-right:10px;}
+
+
+ul.dropdown                       		{position:relative;z-index:70;}
+ul.dropdown li                      	{float:left;zoom:1; padding-right:10px;}
+ul.dropdown a:hover		            	{color:#000;}
+ul.dropdown li a                    	{display:block; height:12px; padding:12px 0px 8px 13px; line-height:12px; font-size:12px; font-weight:bold;cursor:pointer; text-decoration:none; color:#333333; text-transform:uppercase; font-weight:normal;}
+ul.dropdown li.hover,
+ul.dropdown li:hover               		{background: transparent url('../img/gfx.png') no-repeat scroll right -110px; display: block;	float: left; margin-left: 0; margin-right: 1px; padding-right: 10px;position: relative;}
+ul.dropdown li:hover a					{background: transparent url('../img/gfx.png') no-repeat left -110px;color:#000; display: block;padding-left: 13px; text-decoration:none;}
+* html ul.dropdown li.hover,
+* html ul.dropdown li:hover             {background:none; display: block;	float: left; margin-left: 0; margin-right: 1px; padding-right: 10px;position: relative;}
+* html ul.dropdown li a:hover			{background:none; color:#000; display: block;padding-left: 13px; text-decoration:underline;}
+
+ul.dropdown li.active					{background: transparent url('../img/gfx.png') no-repeat scroll right -110px; display: block;	float: left; margin-left: 0; margin-right: 1px; padding-right: 10px;}
+ul.dropdown li.active a					{background: transparent url('../img/gfx.png') no-repeat left -110px;color: #000; display: block;padding-left: 13px; text-decoration: none; font-weight:bold;}
+
+ul.dropdown li.selected 				{background: transparent url('../img/gfx.png') no-repeat scroll right -110px; display: block;	float: left; margin-left: 0; margin-right: 1px; padding-right: 10px;}
+ul.dropdown li.selected a				{background: transparent url('../img/gfx.png') no-repeat left -110px;color: #000; display: block;padding-left: 13px; text-decoration: none; font-weight:bold;}
+
+ul.dropdown li.selected :hover 			{}	
+ul.dropdown li.selected a:hover			{background: transparent url('../img/gfx.png') no-repeat left -110px;}
+
+
+* html ul.dropdown li a					{float:left;}
+* html ul.dropdown ul 					{visibility:hidden;}
+* html ul.dropdown ul li				{visibility:hidden;}
+* html ul.dropdown ul li a				{visibility:hidden;}
+
+ul.dropdown ul 							{width:800px;visibility:hidden;position:absolute;top:100%;left:10px;top:34px;border-bottom:none;}
+ul.dropdown ul li 						{float:left;}
+ul.dropdown ul li a						{color:#888888; padding:5px 30px 4px 10px;margin-top:1px; height:13px;font-weight:normal;}
+
+ul.dropdown ul li.hover a,
+ul.dropdown ul li:hover a,
+ul.dropdown li.active ul li:hover a,
+ul.dropdown li.selected ul li:hover	a	{text-decoration:underline;}
+ul.dropdown ul li a:hover				{color:#444;}
+
+ul.dropdown ul li.active a,
+ul.dropdown ul li.selected a			{font-weight:bold;}
+
+ul.dropdown ul li a						{border-right:none;display:inline-block;}
+* html ul.dropdown ul li a				{float:none;}
+
+
+/* LEVEL 2 */
+ul.dropdown ul ul 							{left:100%;top:0;}
+
+ul.dropdown li.hover ul li.selected a,
+ul.dropdown li:hover ul li.selected a		{font-weight:bold;}
+
+
+/* LEVEL 3 */
+ul.dropdown li.hover ul li.hover ul li a,
+ul.dropdown li:hover ul li:hover ul li a 			{background:#fff;}
+
+ul.dropdown li.hover ul li.hover ul li.hover a,
+ul.dropdown li:hover ul li:hover ul li:hover a 		{background:#E5E5E5;}
+
+ul.dropdown li.hover ul li.hover ul li.selected a,
+ul.dropdown li:hover ul li:hover ul li.selected a	{background:#ccc;}
+
+
+ul.dropdown li:hover > ul {visibility:hidden;}

@@ -13,6 +13,7 @@ IS_HTTP_SERVER = True
 
 #CACHE_BACKEND = 'memcached://127.0.0.1:11211/?timeout=300&max_entries=300'
 
+
 #DATABASE_ENGINE = 'mysql'
 #DATABASE_NAME = 'cmsproject'
 #DATABASE_USER = 'root'

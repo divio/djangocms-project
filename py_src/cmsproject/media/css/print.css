@@ -1,0 +1,8 @@
+*,body{background:#fff;}
+body{color:#000;font:13px Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;}
+
+#nav_main, #nav_lang,#nav_meta, .breadcrumb{display:none;}
+
+#header{display:none}
+
+#footer{display:none}
