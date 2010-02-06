@@ -6,7 +6,7 @@ import os
 PROJECT_DIR = os.path.abspath( os.path.join(os.path.dirname(__file__),'../') )# "../" because we are in a package
 
 try:
-    from cmsproject.secrets import *
+    from cmsproject.settings.secrets import *
 except ImportError:
     pass
 
