@@ -8,7 +8,7 @@ PROJECT_DIR = os.path.abspath( os.path.join(os.path.dirname(__file__),'../') )# 
 try:
     from cmsproject.settings.secrets import *
 except ImportError:
-    pass
+    print "could not import settings.secrets.py"
 
 SITE_ID = 1
 
