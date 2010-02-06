@@ -1,0 +1,30 @@
+.nav_sub ul, .nav_sub li{list-style:none;margin:0;padding:0;background:none;}
+
+.nav_sub ul li a,
+.nav_sub ul li.selected ul li a{
+	display:block;
+	border-bottom: 1px solid #DDD;
+	color:#1f4275;
+	padding:8px;
+	padding-left:10px;
+	display:block;
+	text-decoration:none;	
+}
+* html .nav_sub ul li a{zoom:1;}
+
+.nav_sub ul li a:hover{
+	font-weight:bold;
+}
+
+.nav_sub ul li.selected a{
+	color:#e83237;
+}
+
+.nav_sub ul li ul li a,
+.nav_sub ul li.active ul li a,
+.nav_sub ul li.selected ul li a{
+	padding-left:20px;	
+}
+
+
+

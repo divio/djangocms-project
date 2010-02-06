@@ -1,0 +1,23 @@
+{% load i18n uni_form_tags %}
+<div class="plugin_form">
+    <div class="form_description">
+        <a name="{{ form_model.name|slugify }}_anchor"></a>
+    {% if success %}
+	    <h3>{{ form_model.name }}</h3>
+        <p>{{ form_model.success_message|safe }}</p>
+    {% else %}
+	    <h3>{{ form_model.name }}</h3>
+    	<p>{{ form_model.description }}</p>
+    {% endif %}
+	</div>
+    {% if not success %}
+    <form id="{{ form_model.name|slugify }}" action="#{{ form_model.name|slugify }}_anchor" method="post" enctype="multipart/form-data">
+        {{ form|as_uni_form }}        
+        <div class="submit_button">
+            {#<input class="submit" type="submit" value="{{ form_model.get_submit_label }}" name="{{ form_model.get_submit_label }}" />#}
+			<button class="btn submitbtn" type="submit"><span><span>{{ form_model.get_submit_label }}</span></span></button>		
+            <input class="hidden" type="hidden" name="contactform_id" value="{{ form_model.id }}"/>
+        </div>
+    </form>
+    {% endif %}
+</div>

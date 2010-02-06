@@ -1,8 +1,12 @@
 *,body{background:#fff;}
-body{color:#000;font:13px Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;}
+body{color:#000;font:12px Arial, sans-serif;}
 
-#nav_main, #nav_lang,#nav_meta, .breadcrumb{display:none;}
+#header, #nav_sub, #clearfooter,#footer, .nav_sub_column{display:none;}
 
-#header{display:none}
-
-#footer{display:none}
+ul{
+	list-style:disc;
+}
+ul li{
+	margin-left:20px;
+	padding-left:0;
+}

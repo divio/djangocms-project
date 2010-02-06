@@ -1,0 +1,56 @@
+{% extends "news/base.html" %}
+{% load i18n tagging_tags multilingual_tags %}
+
+{% block content_news %}
+<div class="entry">
+{% with object_detail as object %}
+	<h5 class="date">{{ object.published|date:"d.m.y" }}</h5>
+	<h4 class="title">{{ object.title }}</h4>
+ 	{{ object.content|safe }}
+{% comment %}
+	{% tags_for_object object as tag_list %}
+	{% if tag_list %}
+	<div class="tags">
+		{% for tag in tag_list %}<a href="{% url news_archive_filtered tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+		{% endfor %}
+	</div>
+	{% endif %}
+{% endcomment %}
+
+	{# ENTRY FACTS/DOWNLOADS #}
+	<dl>
+    {% if object.url %}
+		<dt>{% trans 'URL' %}</dt>
+		<dd><a href="{{ object.url }}" onclick="window.open('{{ object.url }}','popup','location=yes,scrollbars=yes,menubar=yes,resizable=yes,toolbar=yes,status=yes');return false;">{{ object.url }}</a></dd>
+	{% endif %}
+	
+	{% with object.dl_set.all as dl_set %}
+	{% if dl_set %}
+	    <dt>{% filter title %}{% trans 'downloads' %}{% endfilter %}</dt>
+		{% for dl in dl_set %}
+			{% for file_language in dl.translations.all %}
+		        <dd><a href="{{ file_language.file.url }}" onclick="window.open(this.href,'popup','location=yes,scrollbars=yes,menubar=yes,resizable=yes,toolbar=yes,status=yes');return false;" title="{{ file_language.title|escape }}">{{ file_language.title|default:dl }} ({{ file_language.language_id|language_name }})</a></dd>
+		    {% endfor %}
+	    {% endfor %}
+	{% endif %}
+	{% endwith %}
+	</dl>
+	
+	{# IMAGES #}
+	{% with object.images.all as images %}
+	{% if images %}
+		{% include "news/widgets/newsentry_detail_images_inc.html" %}
+	{% endif %}
+	{% endwith %}
+	<p><a href="javascript:history.back();"><span>{% trans 'back' %}</span></a></p>
+{% endwith %}
+</div>
+{% endblock %}
+
+{% block breadcrumb %}
+<ul>
+	<li><a href="/">{% filter title %}{% trans "home" %}{% endfilter %}</a></li>
+	<li><a href="{% url news_list %}">{% filter title %}{% trans "news" %}{% endfilter %}</a></li>
+	<li>{{ object_detail.short_title }}</li>
+</ul>
+{% endblock %}

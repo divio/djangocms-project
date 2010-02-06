@@ -1,0 +1,133 @@
+#nav_meta ul, #nav_meta li{list-style:none;margin:0;padding:0;background:none;}
+
+#meta .content_left{padding-top:5px;}
+#meta .content_right{padding-top:5px;}
+
+#meta{font-size:11px;}
+
+/* togglepageheader button */
+a.togglepageheader, a.togglepageheader span{
+	background:url("../img/slidingdoor.jpg") no-repeat;
+	display:block;
+	height:23px;
+	cursor:pointer;
+	float:left;
+}
+a.togglepageheader{
+	display:block;
+	text-decoration:none;
+	padding-right:23px;
+	background-position:right top;
+}
+a.togglepageheader span{
+	line-height:23px;
+	/*font-weight:normal;*/
+	padding:0 5px;
+}
+a.togglepageheader:hover span{
+	color:#adc5e3;
+}
+
+
+/* searchbox */
+#searchbox{
+	width:160px;
+	height:23px;
+	background:url("../img/gfx.png") no-repeat;
+}
+* html #searchbox{overflow:hidden;}
+#searchbox input.searchinput{
+	width:125px;
+	background:none;
+	border:none;
+	color:#fff;
+	font-size:11px;
+	font-family:Arial, Helvetica, sans-serif;
+	height:auto;
+	padding:5px;
+	float:left;
+}
+
+
+#searchbox input.submit{
+	border:none;
+	width:20px;
+	height:23px;
+	background:none;
+	cursor:pointer;
+	float:right;
+}
+
+
+#meta a{
+	color:#fff;
+	font-weight:bold;
+	font-size:11px;
+}
+
+/* nav_meta */
+#nav_meta li{
+	display:inline;
+}
+#nav_meta li a{
+	display:block;
+	float:left;
+	padding:0 10px;
+	line-height:22px;
+}
+#nav_meta li a:hover{
+	color:#adc5e3;
+}
+
+/* nav_lang */
+#nav_lang {float:left; margin-right:10px;}
+
+#nav_lang ul.dropdown, #nav_lang ul.dropdown ul, #nav_lang ul.dropdown li{
+	background:none;
+	margin:0;
+	padding:0;
+}
+#nav_lang ul.dropdown{
+	height:23px;
+	z-index:75;
+}
+
+
+#nav_lang ul.dropdown li a, #nav_lang ul.dropdown li a span{
+	background:url("../img/slidingdoor.jpg") no-repeat;
+	display:block;
+	height:23px;
+	cursor:pointer;
+	float:left;	
+}
+
+#nav_lang ul.dropdown li a{
+	padding:0;
+	margin:0;
+	height:25px;
+	padding-right:22px;
+	background-position:right -50px;
+	line-height:23px;
+	color:#fff;
+}
+#nav_lang ul.dropdown li a span{
+	padding:0 5px;
+}
+
+#nav_lang ul.dropdown ul	{z-index:76; background:#29446F;top:23px; border-color:#101D35; width:140px;}
+
+#nav_lang ul.dropdown li.hover li a,
+#nav_lang ul.dropdown li:hover li a{
+	background:none;
+	padding:0 5px;
+	width:130px;
+	height:23px;
+	color:#fff;
+	float:none;
+	font-weight:normal;
+}
+
+#nav_lang ul.dropdown li.hover li.hover a,
+#nav_lang ul.dropdown li:hover li:hover a{
+	font-weight:bold;
+}

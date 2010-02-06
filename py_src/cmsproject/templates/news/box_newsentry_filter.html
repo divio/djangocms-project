@@ -1,0 +1,10 @@
+{% load i18n %}
+<div>
+    <h2>{% filter title %}{% trans 'news archive' %}{% endfilter %}</h2>
+    <ul>
+        {% if month %}<li><a href="{{ page.get_absolute_url }}">{% trans 'show all' %}</a></li>{% endif %}
+        {% for month_item in month_list %}
+        <li><a{% ifequal month month_item %} class="current"{% endifequal %} href="{{ page.get_absolute_url }}/{{ month_item|date:"Y" }}/{{ month_item|date:"m" }}/">{{ month_item|date:"F" }}&nbsp;{{ month_item|date:"Y" }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

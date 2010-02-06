@@ -1,0 +1,6 @@
+{% if object.file.url %}
+<span class="plugin_file">
+<a href="{{ object.file.url }}"/>{% if object.title %}{{ object.title }}{% else %}{{ object.get_file_name }}{% endif %}</a>
+{% if object.file_exists %}<span class="filesize">({{ object.file.size|filesizeformat }})</span>{% else %}(file missing!){% endif %}
+</span>
+{% endif %}

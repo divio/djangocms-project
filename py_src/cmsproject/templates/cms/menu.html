@@ -1,28 +1,9 @@
 {% load cms_tags cache %}
 {% for child in children %}
-<li class="{% if child.selected %} selected{% endif %}{% if child.ancestor %} active{% endif %}{% if child.sibling %} sibling{% endif %}{% if child.descendant %} descendant{% endif %}">
+<li class="{% if child.selected %} selected{% endif %}{% if child.ancestor %} active{% endif %}{% if child.childrens %} haschildrens{% endif %}">
 	<a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
     {% if child.childrens %}<ul>
         {% show_menu from_level to_level extra_inactive extra_active template child %}
     </ul>{% endif %}
 </li>
 {% endfor %}
-
-{% comment %}
-{% load cms_tags cache %}
-{#% cache CMS_CONTENT_CACHE_DURATION menu page.id lang current_page.id %#}
-{% for child in children %}
-<li{% if child.selected %} class="selected"{% endif %}>
-
-	
-	<a href="{{ child.get_absolute_url }}"{% if child.selected %} class="selected"{% endif %}>{{ child.get_menu_title }}</a>
-
-	    {% if child.childrens %}	
-    <ul>
-        {% show_menu from_level to_level extra_inactive extra_active template child %}
-    </ul>
-    {% endif %}
-</li>
-{% endfor %}
-{#% endcache %#}
-{% endcomment %}

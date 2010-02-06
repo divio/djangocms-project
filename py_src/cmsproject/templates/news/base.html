@@ -1,4 +1,4 @@
-{% extends "col_two.html" %}
+{% extends "base.html" %}
 {% load i18n thumbnail cms_tags %}
 
 {% if title %}
@@ -6,28 +6,29 @@
 {% endif %}
 
 {% block extrahead %}
-	{# <link rel="alternate" type="application/rss+xml" title="{{ site_settings.site }} - {% filter title %}{% trans 'news feed' %}{% endfilter %}" href="{% url news_feed %}"/> #}
+	<link rel="alternate" type="application/rss+xml" title="{{ site_settings.site }} - {% filter title %}{% trans 'news feed' %}{% endfilter %}" href="{# url news_feed #}"/>
 {% endblock %}
 
-{% block tpl_id %}tpl_1col{% endblock %}
+{% block tpl_id %}tpl_col_two{% endblock %}
 
-{% block page_title %}
-	<h1>{% page_attribute title %}{% if title %} | {{ title }}{% endif %}</h1>
-{% endblock %}
-
-{% block col_left %}
-	{% block content_news %}{% endblock %}&nbsp;
-	{% block paginator %}
-		{% if is_paginated %}
-		<div class="paginator">
-			<ul>
-			{% if page_obj.has_previous %}<li class="pag_bt"><a href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a></li>{% endif %}
-			{% for page_nr in paginator.page_range %}
-				<li><a{% ifequal page_obj.number page_nr %} class="active"{% endifequal %} href="?page={{ page_nr }}">{{ page_nr }}</a></li>
-			{% endfor %}
-			{% if page_obj.has_next %}<li class="pag_bt"><a href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a></li>{% endif %}
-			</ul>
-		</div>
-		{% endif %}
-	{% endblock %}
+{% block content %}
+    <div id="col1" class="grid_4 alpha omega nav_sub_column">	    
+		{% include "sidebar_submenu.html" %}
+	
+		{% block col_left %}
+	    	{% placeholder col_left "220" %}
+		{% endblock %}
+    </div>
+	
+    <div id="col2" class="grid_11 push_1">
+    	<h1>{% page_attribute title %}</h1>
+		{% if title %}<h2>{{ title }}</h2>{% endif %}
+		{% block content_news %}{% endblock %}&nbsp;
+		{% block paginator %}{% include "paginator.html" %}{% endblock %}
+		{% comment %}
+		{% block col_right %}
+			{% placeholder col_right "640" %}
+		{% endblock %}
+		{% endcomment %}
+    </div>
 {% endblock %}

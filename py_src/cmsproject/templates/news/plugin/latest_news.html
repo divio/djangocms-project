@@ -1,16 +1,13 @@
 {% load i18n %}
-<div class="plugin_latestnews">
-	<h2>{{ instance.title }}</h2>
+<div class="plugin_latestnews box no_liststyle">
+	<h3>{{ instance.title }}</h3>
 	<ul>
     {% for object in news_set %}
     	<li>
-			<div class="border_bottom">
-				<h3>{{ object.title }}</h3>
-				<h5>{{ object.published|date:"d.m.y" }}</h5>
-				{{ object.content|safe|truncatewords_html:15|striptags|linebreaks }}
-				<p><a href="{{ object.get_absolute_url }}">{% trans 'more' %}...</a></p>
-			</div>
+			<h5>{{ object.published|date:"d.m.y" }}</h5>
+			<p><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></p>
 		</li>
     {% endfor %}
 	</ul>
+	{% comment %}<a href="{% url news_list %}" class="more">{% trans "read more news" %}</a>{% endcomment %}
 </div>

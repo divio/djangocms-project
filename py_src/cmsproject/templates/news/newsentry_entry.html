@@ -1,0 +1,17 @@
+{% load tagging_tags i18n %}
+<div class="entry border_bottom">
+	<h5 class="date">{{ object.published|date:"d.m.y" }}</h5>
+	<h4 class="title">{{ object.title }}</h4>
+	{{ object.content|safe|truncatewords_html:100 }}
+	<p><a href="{{ object.get_absolute_url }}">{% trans 'more' %}...</a></p>
+		
+{% comment %} this does not work if the block app is not installed
+		{% tags_for_object object as tag_list %}
+		{% if tag_list %}
+			<div class="tags">
+				{% for tag in tag_list %}<a href="{% url blog_post_for_tag_list tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+{% endcomment %}				
+</div>

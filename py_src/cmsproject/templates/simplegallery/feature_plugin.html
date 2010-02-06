@@ -3,9 +3,6 @@
 <script type="text/javascript">
 //<![CDATA[
 $(function() {
-	$("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}js/jquery.cycle.min.js"></' + 'scr' + 'ipt>');
-	$("head").append('<scr' + 'ipt type="text/javascript" src="{{ MEDIA_URL }}js/jquery.cycle.trans.min.js"></' + 'scr' + 'ipt>');
-	
 	$('#feature_top_slideshow_{{ instance.id }} .slideshow_content .holder').hide();
 	$('#feature_top_slideshow_{{ instance.id }} .slideshow_content').cycle({
         fx:    'fade',
@@ -39,16 +36,11 @@ $(function() {
 		{% with image.get_url as url %}
         <div class="holder">
    			<div class="feature_content_2"><p>{{ image.description_2 }}<br /><span>{{ image.title_2 }}</span></p></div>
-			{% if url %}<a href="{{ url }}" class="pic">{% endif %}<img src="{% thumbnail image.file 960x480 crop %}" alt="{{ image.description }}" />{% if url %}</a>{% endif %}
+			{% if url %}<a href="{{ url }}" class="pic">{% endif %}<img src="{% thumbnail image.image image_size.0 crop,upscale %}" alt="{{ image.description }}" />{% if url %}</a>{% endif %}
 			<div class="feature_content_1">
 				<h2>{{ image.title }}</h2>
 				{{ image.description|linebreaks }}
-				{% if url %}
-				<ul class="btn">
-					<li>
-						<a href="{{ url }}" class="">{% trans 'Entdecken Sie Playground' %}</a>{% endif %}
-					</li>
-				</ul>
+				{% if url %}<a href="{{ url }}" class="more">{% trans "more" %}</a>{% endif %}
 			</div>
 		</div>
 		{% endwith %}

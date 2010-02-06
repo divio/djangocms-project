@@ -1,0 +1,9 @@
+{% if children %}
+<div class="nav_sub">
+	<ul>
+	{% with "cms/menu.html" as template %}
+	{% include "cms/menu.html" %}
+	{% endwith %}
+	</ul>
+</div>
+{% else %}{% endif %}

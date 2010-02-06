@@ -1,0 +1,10 @@
+{% extends "news/newsentry_archive.html" %}
+{% load i18n %}
+
+{% block breadcrumb %}
+<ul>
+	<li><a href="/">{% filter title %}{% trans "home" %}{% endfilter %}</a></li>
+	<li><a href="{% url news_list %}">{% filter title %}{% trans "news" %}{% endfilter %}</a></li>
+	<li>{#<a href="{% url news_archive_year year %}">#}{{ year }}{#</a>#}</li>
+</ul>
+{% endblock %}

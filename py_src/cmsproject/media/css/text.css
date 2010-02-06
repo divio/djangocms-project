@@ -1,7 +1,16 @@
-body{font:12px Helvetica, Arial, sans-serif; color:#666666; line-height:22px;}
+.textleft{text-align:left;}
+.textright{text-align:right;}
+
+body{font:12px Arial, sans-serif; color:#333;}
+a{color:#1f4275;}
+a:link{}
+a:visited{color:#6680a7;}
+a:hover{color:#1f4275; text-decoration:none;}
+a:active{color:#e83237;}
+
 a:focus{outline:1px dotted invert}
-a{ color:#00335d}
-a:hover{ color:#000}
+
+a img{border:none;}
 
 hr{
 	border:0 #ccc solid;
@@ -9,25 +18,92 @@ hr{
 	clear:both;
 	height:0
 }
-h1{font-size:24px; color:#35b7ed; font-weight:normal; margin-top:20px;}
-h2{font-size:15px; color:#666666}
-h3{font-size:13px; color:#333333}
-h4{font-size:12px; color:#333333}
-h5{font-size:11px; color:#666666}
-h6{font-size:12px; color:#666666}
+
+h1{font-size:20px; color:#1f4275;}
+h2{font-size:16px; color:#000;}
+h3{font-size:14px; color:#333;}
+h4{font-size:13px; color:#333;}
+h5{font-size:13px; color:#666;}
+h6{font-size:15px; color:#666;}
+h1, h2, h3, h4, h5, h6{margin-bottom:5px;line-height:1.2em;}
 
 
-ol{list-style:decimal}
-ul{list-style:disc;}
-li{margin-left:30px}
-p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, blockquote{margin-bottom:10px;}
+p{
+	margin:0 0 10px 0;
+	line-height:1.5em;
+}
+
+ol{list-style:decimal;}
+ol li{margin-left:18px;}
+
+ul{list-style:none;}
+ul li{background:url("../img/li.jpg") no-repeat; padding-left:15px; padding-bottom:5px;}
+ul li ul{padding-top:5px;}
+ul li ul li {margin-left:10px;}
+
+
+p, dl, hr, ol, ul, pre, table, address, fieldset, blockquote{margin-bottom:10px;}
 
 blockquote{
 	padding:10px;
-	background:#ccc;
+	background:#F4F5F8;
 }
 
 dl dt{font-weight:bold;}
 dl dd{margin-bottom:10px;}
 
 address{font-style:normal;}
+
+/* NOTE */
+.note{
+	background:#F4F5F8;
+	color:#1f4275;
+	display:block;
+	border:1px solid #909FB9;
+	padding:10px;
+	margin-bottom:10px;
+}
+
+/* TABLE */	
+table,table th,table td,table tr{
+	border:none;
+	border-collapse:separate;	
+	vertical-align:top;
+	text-align:left;
+	margin:0px;
+	padding:0px;
+	color:#666;
+}
+table{
+	border-spacing:2px;	
+	border-bottom:1px solid #000;
+}
+table.full{
+	width:100%;
+}
+table th, table td{
+	padding:5px;
+}
+table td{
+	background:#F5F5F5;	
+}
+table th{
+	border-bottom:1px solid #000;
+	font-size:13px;
+	color:#333;
+}	
+table thead td, table thead th{
+	font-size:13px;
+	color:#333;
+}	
+table tbody th{
+	font-size:12px;
+	color:#666;
+}	
+tr.odd td, tr td.odd{
+	background:#fff;	
+}	
+.table_legend{
+	color:#666;
+	font-style:italic;
+}

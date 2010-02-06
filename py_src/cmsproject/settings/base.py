@@ -273,18 +273,20 @@ WYM_CONTAINERS = "" + \
     "{'name': 'BLOCKQUOTE', 'title': 'Blockquote', 'css': 'wym_containers_blockquote'},"
 
 # django-cms settings
-# django-cms settings
 CMS_TEMPLATES = (
-    ('col_one.html', gettext('one column')),
+#    ('col_one.html', gettext('one column')),
     ('col_two.html', gettext('two columns')),
-    ('col_two_blog.html', gettext('two columns blog')),
-    ('col_two_sitemap.html', gettext('two columns sitemap')),
-    ('col_two_Kontakt.html', gettext('two columns kontakt')),    
-    ('col_three.html', gettext('three columns')),
-    ('col_three_feature.html', gettext('three columns feature')),
+    ('col_two_sidebar_right.html', gettext('two columns sidebar right')),
+    
+    ('col_two_header.html', gettext('two columns with header')),
+    ('col_two_header_sidebar_right.html', gettext('two columns with header sidebar right')), 
+    
+    ('col_three_header.html', gettext('three columns with header')),
+    
+#    ('col_three.html', gettext('three columns')),
 )
 CMS_PLACEHOLDER_CONF = {    
-    'feature_standard': {
+    'feature_top': {
         'plugins': ('SimpleGalleryPublicationPlugin', 'FilerImagePlugin', 'FlashPlugin', 'TextPlugin', 'VideoPlugin', ),
         'name': gettext('feature top'),
     },

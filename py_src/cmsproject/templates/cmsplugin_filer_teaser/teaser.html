@@ -1,0 +1,15 @@
+{% load i18n thumbnail filermedia %}
+<div class="plugin_teaser box clearfix{% if object.style %} {{ object.style }}{% endif %}">
+{% if object.image %}
+	<div class="imgholder">
+	{% if link %}<a href="{{ link }}">{% endif %}
+		<img alt="{% if object.alt %}{{ object.alt }}{% endif %}" src="{% thumbnail object.image image_size|extra_padding_x:40 crop,upscale %}" />
+	{% if link %}</a>{% endif %}
+	</div>
+{% endif %}
+<h4>{{ object.title|title }}</h4>
+{% if object.description %}
+<p>{{ object.description }}</p>
+{% endif %}
+{% if link %}<a href="{{ link }}" class="more">{% trans "more" %}...</a>{% endif %}
+</div>

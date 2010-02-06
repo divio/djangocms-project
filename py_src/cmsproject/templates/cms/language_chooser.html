@@ -1,4 +1,14 @@
 {% load cms_tags %}
 {% for language in languages %}
-<li{% ifequal lang language.0 %} class="selected"{% endifequal %}><a href="{% page_language_url language.0 %}">{{ language.1 }}</a></li>
-{% endfor %}
+{% ifequal lang language.0 %}
+<li><a href="#"><span>{{ language.1 }}</span></a>
+{% endifequal%}{% endfor %}
+	<ul>
+		{% for language in languages %}
+		{% ifnotequal lang language.0 %}
+		<li><a href="{% page_language_url language.0 %}">{{ language.1 }}</a></li>
+		{% endifnotequal %}
+		{% endfor %}
+	</ul>
+</li>
+

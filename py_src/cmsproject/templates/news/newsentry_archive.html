@@ -1,0 +1,7 @@
+{% extends "news/base.html" %}
+
+{% block content_news %}
+{% for object in object_list %}
+	{% include "news/newsentry_entry.html" %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "news/base.html" %}
+{% load i18n %}
+
+{% block content_news %}
+    <ul>
+    {% for object in object_list %}
+		<li><a href="{% url news_archive_filtered object.slug %}">{{ object }}</a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block breadcrumb %}
+<ul>
+	<li><a href="/">{% filter title %}{% trans "home" %}{% endfilter %}</a></li>
+	<li><a href="{% url news_list %}">{% filter title %}{% trans "news" %}{% endfilter %}</a></li>
+	<li>{#<a href="{% url news_archive_tag_list %}">#}{% filter title %}{% trans "tags" %}{% endfilter %}{#</a>#}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,68 @@
+ul.dropdown, ul.dropdown ul, ul.dropdown li{list-style:none;margin:0;padding:0;background:none;}
+
+ul.dropdown                       		{position:relative;z-index:70;padding-right:2px; height:60px; float:left; background:url("../img/nav-main.jpg") no-repeat right top;}
+ul.dropdown li                      	{float:left;zoom:1;margin:0; background:url("../img/nav-main.jpg") no-repeat;}
+ul.dropdown li a                    	{display:block;height:58px;padding:23px 13px 0px 13px; font-size:12px; font-weight:bold;cursor:pointer;text-decoration:none;color:#1f4275;}
+
+ul.dropdown li.hover,
+ul.dropdown li:hover               		{position:relative;background-position:0px -100px;}
+
+ul.dropdown li.haschildrens:hover		{background-position:0px -300px;}
+
+
+ul.dropdown li.active,
+ul.dropdown li.selected					{background-position:0px -200px;}
+ul.dropdown li.active a,
+ul.dropdown li.selected a				{color:#ea3237;}
+
+* html ul.dropdown li a					{float:left;}
+
+ul.dropdown ul 							{z-index:71;width:240px;visibility:hidden;position:absolute;/*top:100%;*/ top:58px;left:0px;border:1px solid #DDD;border-top:none; background:#F9F9F9;}
+ul.dropdown ul li.first-child,
+ul.dropdown ul li:first-child			{background:none;}
+
+ul.dropdown li li,
+ul.dropdown li.active li,
+ul.dropdown li.selected li 				{float:none; background-position:-400px 0;}
+
+ul.dropdown li.hover li.hover,
+ul.dropdown li:hover li:hover      		{background-position:-400px 0;}
+
+
+
+ul.dropdown li li a,
+ul.dropdown li.active li a,
+ul.dropdown li.selected li a 			{color:#1f4275;}
+
+ul.dropdown li.active li.selected a		{color:#ea3237;}
+
+
+ul.dropdown li li.active a,
+ul.dropdown li.hover li.hover a,
+ul.dropdown li:hover li:hover a			{font-weight:bold;}
+
+
+
+ul.dropdown li li a						{padding:10px 10px 8px 10px; height:auto;font-weight:normal;width:220px;}
+
+ul.dropdown ul li a						{border-right:none;display:inline-block;}
+* html ul.dropdown ul li a				{float:none;}
+
+
+/* LEVEL 2 */
+ul.dropdown ul ul 						{left:230px;top:1px; border:1px solid #DDD;}
+
+ul.dropdown li li li a,
+ul.dropdown li li.active li a,
+ul.dropdown li.hover li.hover li a,
+ul.dropdown li:hover li:hover li a,
+ul.dropdown li.active li.selected li a	{color:#1f4275; font-weight:normal;}
+
+
+ul.dropdown li.active li.active li.selected a		{color:#ea3237;}
+
+
+ul.dropdown li.hover li.hover li.hover a,
+ul.dropdown li:hover li:hover li:hover a         {font-weight:bold;}
+
+ul.dropdown li:hover > ul {visibility:visible;}

@@ -1,0 +1,6 @@
+<div class="plugin_teaser box plugin_relatednews">
+	<h4>{{ object.title }}</h4>
+	<ul>{% for item in news_set %}
+		<li><a href="{{ item.get_absolute_url }}">{{ item }}</a></li>{% endfor %}
+	</ul>
+</div>

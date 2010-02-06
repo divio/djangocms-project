@@ -1,0 +1,21 @@
+{% load i18n %}
+{% if year_month_set %}
+<div class="plugin_newsarchive nav_sub">
+	{% if instance.title %}<h3>{% filter title %}{{ instance.title }}{% endfilter %}</h3>{% endif %}
+	<ul>
+	{% for year in year_month_set %}
+		<li{% ifequal news_year|lower year.0|lower %} class="selected"{% endifequal %}><a href="{% url news_archive_year year.1.0.0|date:"Y" %}">{{ year.0 }}</a>
+		{# the |lower is needed since it seems to compare types... #}
+		{% ifequal news_year|lower year.0|lower %}
+			<ul>
+			{% for d, active in year.1 %}
+				{% if active %}<li><a href="{% url news_archive_month d|date:"Y" d|date:"m" %}">{{ d|date:"F" }}</a></li>
+				{% else %} {# <li>{{ d|date:"F" }}</li>#}{% endif %}
+			{% endfor %}
+			</ul>
+		{% endifequal %}
+		</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
